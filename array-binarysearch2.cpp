@@ -1,28 +1,31 @@
-# include <iostream>
+#include <iostream>
 using namespace std;
-int arr[10], n, i , x ;
+    int arr[10],n,i,x;
 //user define function declare here and low , high parameter we use in function
 int binarysearch(int low, int high){
-while(low<=high){
- int mid = (low+high)/2;
- if(arr[mid]==x){
+    if(low>high){
+        return -1;
+        }
+    else{
+        int mid = (low+high)/2;
+         if(arr[mid]==x){
     return mid;
  }
  else if (arr[mid]>x){
-    high = mid-1;
+return binarysearch (low,mid-1);
+     
 
  }
  else {
-    low = mid+1;
+   return binarysearch (mid+1,low);
+
  }
-}
-return -1;
+    }    
 }
 int main(){
-    
-    cout<< "\nEnter size of an array: ";
+    cout<<"Enter size of an array: ";
     cin>>n;
-    cout<<"Enter array elements in ascending order: ";
+    cout<<"Enter array Elements ascending order: ";
     for(i=0; i<n; i++){
         cin>>arr[i];
     }
@@ -36,5 +39,4 @@ int main(){
         cout<<"Element found at index: "<<result;
     }
     return 0;
-
 }
